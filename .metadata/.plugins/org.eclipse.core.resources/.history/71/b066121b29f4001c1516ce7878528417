@@ -1,0 +1,5 @@
+package com.lima.financas.services;
+
+public class UsuarioService {
+
+}

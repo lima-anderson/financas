@@ -1,0 +1,5 @@
+package com.lima.financas.models.dtos;
+
+public class AtualizaStatusDTO {
+
+}

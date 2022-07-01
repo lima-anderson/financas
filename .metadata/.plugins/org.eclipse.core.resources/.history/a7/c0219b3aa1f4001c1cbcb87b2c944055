@@ -1,0 +1,19 @@
+package com.lima.financas.models.dtos;
+
+import java.math.BigDecimal;
+
+import com.lima.financas.models.Usuario;
+import com.lima.financas.models.enums.StatusLancamento;
+import com.lima.financas.models.enums.TipoLancamento;
+
+public class LancamentoDTO {
+
+	private String descricao;
+	private Integer mes;
+	private Integer ano;
+	private Usuario usuario;
+	private BigDecimal valor;
+	private TipoLancamento tipo;
+	private StatusLancamento status;
+
+}

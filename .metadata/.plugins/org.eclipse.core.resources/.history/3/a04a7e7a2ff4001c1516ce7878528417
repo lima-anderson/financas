@@ -1,0 +1,38 @@
+package com.lima.financas.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lima.financas.exceptions.RegraNegocioException;
+import com.lima.financas.models.Usuario;
+import com.lima.financas.models.dtos.UsuarioDTO;
+import com.lima.financas.services.UsuarioService;
+
+@RestController
+@RequestMapping("/api/usuarios")
+public class UsuarioController {
+	
+	@Autowired
+	private UsuarioService service;
+	
+	@PostMapping	
+	public ResponseEntity salvar(@RequestBody UsuarioDTO dto) {
+		Usuario usuario = Usuario.builder()
+					.nome(dto.getNome())
+					.email(dto.getEmail())
+					.senha(dto.getSenha());
+		
+		try {
+			Usuario usuarioSalvo = service.salvarUsuario(usuario);
+			return new ResponseEntity(usuarioSalvo, HttpStatus.CREATEDStatus);
+		} catch (RegraNegocioException e) {
+			return ResponseEntity.badRequest().body(e.getMessage());
+		}
+	}
+
+}

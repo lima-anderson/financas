@@ -1,0 +1,42 @@
+package com.lima.financas.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lima.financas.models.Lancamento;
+import com.lima.financas.models.dtos.LancamentoDTO;
+import com.lima.financas.services.LancamentoService;
+import com.lima.financas.services.UsuarioService;
+
+@RestController
+@RequestMapping("/api/lancamentos")
+public class LancamentoController {
+
+	@Autowired
+	private LancamentoService lancamentoService;
+
+	@Autowired
+	private UsuarioService usuarioService;
+
+	@PostMapping
+	public ResponseEntity salvar(@RequestBody LancamentoDTO dto) {
+
+	}
+
+	private Lancamento converter(LancamentoDTO dto) {
+		Lancamento lancamento = new Lancamento();
+		lancamento.setDescricao(dto.getDescricao());
+		lancamento.setMes(dto.getMes());
+		lancamento.setAno(dto.getAno());
+		lancamento.setValor(dto.getValor());
+		
+		Usuario usuario = usuarioService.buscarPorId(dto.getUsuario().getId());
+		lancamento.
+		lancamento.
+	}
+
+}

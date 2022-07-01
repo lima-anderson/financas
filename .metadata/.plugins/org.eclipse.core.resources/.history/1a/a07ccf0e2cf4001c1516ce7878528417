@@ -1,0 +1,31 @@
+package com.lima.financas.services;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lima.financas.exceptions.RegraNegocioException;
+import com.lima.financas.models.Usuario;
+import com.lima.financas.repositories.UsuarioRepository;
+
+@Service
+public class UsuarioService {
+
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+
+	@Transactional
+	public Usuario salvarUsuario(Usuario usuario) {
+		validarEmail(usuario.getEmail());
+		return usuarioRepository.save(usuario)
+	}
+
+	public void validarEmail(String email) {
+		boolean existe = usuarioRepository.existsByEmail(email);
+		if (existe) {
+			throw new RegraNegocioException("Já cadastrado");
+		}
+	}
+
+}

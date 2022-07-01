@@ -1,0 +1,11 @@
+package com.lima.financas.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.lima.financas.repositories.UsuarioRepository;
+
+public class UsuarioService {
+
+	private UsuarioRepository usuarioRepository;
+
+}

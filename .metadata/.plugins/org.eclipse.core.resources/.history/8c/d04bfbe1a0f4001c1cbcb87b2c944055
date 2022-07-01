@@ -1,0 +1,16 @@
+package com.lima.financas.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.lima.financas.services.LancamentoService;
+
+@RestController
+@RequestMapping("/api/lancamentos")
+public class LancamentoController {
+
+	@Autowired
+	private LancamentoService lancamentoService;
+
+}

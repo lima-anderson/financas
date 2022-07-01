@@ -1,0 +1,12 @@
+package com.lima.financas.repositories;
+
+import java.math.BigDecimal;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.lima.financas.models.Lancamento;
+
+public interface LancamentoRepository extends JpaRepository<Lancamento, Long> {
+	
+	BigDecimal tirarSaldoPorTipoLancamentoEUsuario();
+}

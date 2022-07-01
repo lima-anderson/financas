@@ -1,0 +1,13 @@
+package com.lima.financas.services;
+
+import com.lima.financas.models.Usuario;
+
+public class UsuarioService {
+
+	Usuario autenticar(String email, String senha);
+
+	Usuario salvarUsuario(Usuario usuario);
+
+	void validarEmail(String email);
+
+}

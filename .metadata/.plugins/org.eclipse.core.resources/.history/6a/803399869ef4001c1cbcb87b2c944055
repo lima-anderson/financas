@@ -1,0 +1,46 @@
+package com.lima.financas.services;
+
+import java.util.List;
+import java.util.Objects;
+
+import javax.transaction.Transactional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.lima.financas.models.Lancamento;
+import com.lima.financas.models.enums.StatusLancamento;
+import com.lima.financas.repositories.LancamentoRepository;
+
+@Service
+public class LancamentoService {
+
+	@Autowired
+	private LancamentoRepository lancamentoRepository;
+	
+	@Transactional
+	Lancamento salvar(Lancamento lancamento) {
+		return lancamentoRepository.save(lancamento);
+	}
+	
+	@Transactional
+	Lancamento atualizar(Lancamento lancamento) {
+		Objects.requireNonNull(lancamento.getId());
+		return lancamentoRepository.save(lancamento);
+	}
+	
+	@Transactional
+	void deletar(Lancamento lancamento) {
+		lancamentoRepository.delete(lancamento);
+	}
+	
+	List<Lancamento> buscar(Lancamento lancamentoFiltro) {
+		return None;
+	}
+	
+	void atualizarStatus(Lancamento lancamento, StatusLancamento status) {
+		return None;
+	}
+	
+	
+}

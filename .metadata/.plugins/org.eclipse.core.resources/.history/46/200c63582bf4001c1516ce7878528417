@@ -1,0 +1,5 @@
+package com.lima.financas.exceptions;
+
+public class ErroAutenticacao {
+
+}

@@ -1,0 +1,5 @@
+package com.lima.financas.models;
+
+public class Usuario {
+
+}
